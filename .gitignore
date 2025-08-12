@@ -35,3 +35,33 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+
+# Build outputs
+android/app/build/
+ios/build/
+
+# Xcode
+ios/Pods/
+ios/Podfile.lock
+ios/xcuserdata/
+ios/*.xcworkspace
+ios/*.xcodeproj/project.xcworkspace/
+ios/*.xcodeproj/xcuserdata/
+
+# Android Studio
+*.iml
+.gradle/
+.idea/
+
+# React Native packager cache
+*.metro-cache/
+
+# Editor temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# Windows system files
+Thumbs.db
