@@ -1,4 +1,4 @@
-export default {
+export const theme = {
     colors: {
         primary: '#005A63',
         secondary: '#FFDDD2',
@@ -13,6 +13,7 @@ export default {
         md: 16,
         lg: 24,
         xl: 32,
+        xx: 50,
     },
     fontSize: {
         small: 12,
@@ -26,9 +27,8 @@ export default {
     },
     radius:  {
         sm: 4,
-        md: 8,
-        lg: 16,
+        md: 10,
+        lg: 50,
         full: 9999,
     },
-        
 };

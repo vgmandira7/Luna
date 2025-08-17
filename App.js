@@ -2,6 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useFonts, Inter_300Light,  Inter_700Bold} from '@expo-google-fonts/inter';
 import AppLoading from 'expo-app-loading';
+import Login from './src/screens/userStudent/login/index';
+import Escolha from './src/screens/chooseProfile/index';
+
+
 
 export default function App() {
   //ta importando as fontes que vamos usar
@@ -16,11 +20,12 @@ export default function App() {
   }
 
 
+  
+
   //conteudo principal
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Login/>
     </View>
   );
 }

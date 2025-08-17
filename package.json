@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.4.1",
+    "@expo/vector-icons": "^14.1.0",
     "expo": "~53.0.20",
+    "expo-app-loading": "^2.1.1",
     "expo-font": "~13.3.2",
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
-    "react-native": "0.79.5"
+    "react-native": "0.79.5",
+    "react-native-reanimated": "~3.17.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
