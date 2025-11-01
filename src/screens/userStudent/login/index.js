@@ -34,8 +34,8 @@ export default function LoginScreen() {
   }));
 
   const lunaStyle = useAnimatedStyle(() => ({
-    top: logoPosition.value - 70, // posiciona a foto acima da logo
-    width: logoSize.value * 0.5,  // metade do tamanho da logo
+    top: logoPosition.value - 70, 
+    width: logoSize.value * 0.5,  
     height: logoSize.value * 0.5,
   }));
 
@@ -78,6 +78,7 @@ export default function LoginScreen() {
           style={styles.inputSenha}
         />
 
+        {/* Botão de entrar */}
         <CustomButton
           title="Entrar"
           onPress={() => console.log('Login clicado')}

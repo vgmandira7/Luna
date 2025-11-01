@@ -4,6 +4,7 @@ import { useFonts, Inter_300Light,  Inter_700Bold} from '@expo-google-fonts/inte
 import AppLoading from 'expo-app-loading';
 import Login from './src/screens/userStudent/login/index';
 import Escolha from './src/screens/chooseProfile/index';
+import Home from './src/screens/userStudent/home/index';
 
 
 
@@ -25,7 +26,7 @@ export default function App() {
   //conteudo principal
   return (
     <View style={styles.container}>
-      <Login/>
+      <Home/>
     </View>
   );
 }

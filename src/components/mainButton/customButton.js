@@ -6,9 +6,9 @@ import { theme } from '../../styles/theme';
 export default function CustomButton({
   title,
   onPress,
-  style,          // permite customizar o botão externamente
-  textStyle,      // permite customizar o texto
-  backgroundColor = theme.colors.secondary, // cor padrão
+  style,          
+  textStyle,      
+  backgroundColor = theme.colors.secondary, 
 }) {
   return (
     <TouchableOpacity
