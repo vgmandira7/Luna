@@ -1,4 +1,4 @@
-# teste_ia.py
+
 import joblib
 
 modelo = joblib.load("modelo_moldes.pkl")
@@ -21,7 +21,7 @@ def gerar_prompt(molde, hiperfoco):
     base = temas.get(molde, "um fundo educativo e alegre para crianças")
     return f"Crie {base}, relacionado ao hiperfoco em {hiperfoco}."
 
-# 🔍 Teste
+
 if __name__ == "__main__":
     plano = "Desenhar e pintar formas geométricas"
     hiperfoco = "musica"
