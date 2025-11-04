@@ -3,9 +3,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 import joblib
 
-# ======================
-# 1️⃣ Dataset de treino
-# ======================
 planos = [
     "Atividade de matemática com operações de soma e subtração simples",
     "Leitura e interpretação de histórias infantis com rimas",
@@ -22,16 +19,13 @@ moldes = [
     "jogo_matematico"
 ]
 
-# ======================
-# 2️⃣ Treinar o modelo
-# ======================
 vectorizer = TfidfVectorizer()
 X = vectorizer.fit_transform(planos)
 
 modelo = LogisticRegression()
 modelo.fit(X, moldes)
 
-# Salvar o modelo
+# Salvar
 joblib.dump(modelo, "modelo_moldes.pkl")
 joblib.dump(vectorizer, "vetorizador.pkl")
 
