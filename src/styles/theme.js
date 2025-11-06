@@ -6,6 +6,12 @@ export const theme = {
         textPrimary: '#FFFFFF',
         textDark: '#333333',
         textInput: '#D8CDC9',
+        shadowColor: '#000000',
+        firstMatter: '#EDF6F9',
+        secondMatter: '#D7E1FD',
+        thirdMatter: '#FFDDD2',
+        fourthMatter: '#DD8C6A',
+        fifthMatter: '#C6FDDB',
     },
     spacing: {
         xs: 4,
