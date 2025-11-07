@@ -12,6 +12,11 @@ export const theme = {
         thirdMatter: '#FFDDD2',
         fourthMatter: '#DD8C6A',
         fifthMatter: '#C6FDDB',
+        borderFirstMatter: '#006D77',
+        borderSecondMatter: '#02136B',
+        borderThirdMatter: '#71270F',
+        borderFourthMatter: '#3B180B',
+        borderFifthMatter: '#013816',
     },
     spacing: {
         xs: 4,

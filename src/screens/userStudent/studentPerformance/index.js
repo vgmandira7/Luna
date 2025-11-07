@@ -10,7 +10,7 @@ import { theme } from '../../../styles/theme';
 import { CustomInput, CustomButton } from '../../../components/index';
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
 import { styles } from './style/style';
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme } from 'victory-native';
+import Svg, { Circle, Rect, Path } from 'react-native-svg';
 
 const { height, width } = Dimensions.get("window");
 
@@ -18,6 +18,14 @@ export default function studentPerformanceScreen() {
   const logoPosition = useSharedValue(height / 2 - 100);
   const logoSize = useSharedValue(200);
   const modalTranslate = useSharedValue(height * 0.7);
+
+  const dados = [
+    { matter: 'LP', porcent: 100, colorRow: theme.colors.firstMatter, colorBorder: theme.colors.borderFirstMatter, colorMatter: theme.colors.borderFirstMatter },
+    { matter: 'MAT', porcent: 85, colorRow: theme.colors.secondMatter, colorBorder: theme.colors.borderSecondMatter, colorMatter: theme.colors.borderSecondMatter },
+    { matter: 'GEO', porcent: 20, colorRow: theme.colors.thirdMatter, colorBorder: theme.colors.borderThirdMatter, colorMatter: theme.colors.borderThirdMatter },
+    { matter: 'HIS', porcent: 58, colorRow: theme.colors.fourthMatter, colorBorder: theme.colors.borderFourthMatter, colorMatter: theme.colors.borderFourthMatter },
+    { matter: 'CIÊ', porcent: 90, colorRow: theme.colors.fifthMatter, colorBorder: theme.colors.borderFifthMatter, colorMatter: theme.colors.borderFifthMatter },
+  ];
 
   useEffect(() => {
     setTimeout(() => {
@@ -54,19 +62,41 @@ export default function studentPerformanceScreen() {
       />
 
       {/* Foto da logo do Luna */}
-      <Animated.Image
-        source={require('../../../assets/logo mobile.png')}
-        style={[styles.logo, lunaStyle]}
-        resizeMode="contain"
-      />
+      {/* <Image source={require('../../../assets/logo mobile.png')} style={[styles.logo]}></Image> */}
       
-       <Text style={styles.titleScreen}>Gráfico de desempenho geral</Text>
-
-      {/* Modal de login animado */}
-      <Animated.View style={[styles.percentMatter, modalStyle]}>
-
       
-      </Animated.View>
+      <Text style={styles.titleScreen}>Gráfico de desempenho geral</Text>
+
+      {/* Gráfico com o desempenho do alubo de cada matéria */}
+      <View style={styles.percentMatter}>
+        {dados.map((item, index) => (
+          <View key={index}>   
+            <View style={styles.barWrapper}>
+              <Text style={styles.barText}>{item.porcent}%</Text>
+              <View
+                style={[
+                  styles.rowGraphic,
+                  {
+                    height: `${item.porcent}`,
+                    backgroundColor: item.colorRow,
+                    borderColor: item.colorBorder,
+                    borderBottomWidth: 2,
+                    width: 40,
+                    flexDirection: 'row'
+                  },
+                ]}
+              >   
+
+              </View>
+              <Text style={[styles.label, {
+                color: item.colorMatter,
+              }]}>{item.matter}</Text>
+            </View>
+            
+          </View>
+        ))}
+
+      </View>
 
       {/* Modal com o nome das matérias e o tempo médio*/}
       <Animated.View style={[styles.timeMatter, modalStyle]}>

@@ -13,8 +13,10 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   logo: {
-    position: "absolute",
-    alignSelf: 'flex-start',
+    position: 'absolute', 
+    marginLeft: 330,
+    width: '10%',
+    height: '10%'
   },
   percentMatter: {
     width: '85%',
@@ -27,6 +29,9 @@ export const styles = StyleSheet.create({
     elevation: 6,
     padding: 72,
     alignSelf: 'center', // centraliza horizontalmente
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
   },
   timeMatter: {
     width: '85%',
@@ -63,7 +68,7 @@ export const styles = StyleSheet.create({
     bottom: 240
   },
   firstMatter: {
-    width: '15%',
+    width: '13%',
     height: '23%',
     backgroundColor: theme.colors.firstMatter,
     borderRadius: theme.radius.sm, 
@@ -71,7 +76,7 @@ export const styles = StyleSheet.create({
     marginLeft: -45,
   },
   secondMatter: {
-    width: '15%',
+    width: '13%',
     height: '23%',
     backgroundColor: theme.colors.secondMatter,
     borderRadius: theme.radius.sm, 
@@ -79,7 +84,7 @@ export const styles = StyleSheet.create({
     bottom: 40,
   },
   thirdMatter: {
-    width: '15%',
+    width: '13%',
     height: '23%',
     backgroundColor: theme.colors.thirdMatter,
     borderRadius: theme.radius.sm, 
@@ -87,7 +92,7 @@ export const styles = StyleSheet.create({
     bottom: 39,
   },
   fourthMatter: {
-    width: '15%',
+    width: '13%',
     height: '23%',
     backgroundColor: theme.colors.fourthMatter,
     borderRadius: theme.radius.sm,
@@ -95,7 +100,7 @@ export const styles = StyleSheet.create({
     bottom: 38,
   },
   fifthMatter: {
-    width: '15%',
+    width: '13%',
     height: '23%',
     backgroundColor: theme.colors.fifthMatter,
     borderRadius: theme.radius.sm, 
@@ -118,10 +123,17 @@ export const styles = StyleSheet.create({
   time: {
     fontFamily: 'Inter_700Bold',
     fontSize: theme.fontSize.normal,
-    color: theme.colors.textPrimary,
+    color: theme.colors.secondary,
     bottom: 432,
     marginLeft: 170,
     padding: 4.5,
     marginLeft: 210,
-  }
+  },
+  label: {
+    fontFamily: 'Inter_700Bold',
+    fontSize: theme.fontSize.normal,
+    alignSelf: 'center'
+  },
+ 
+
 });
