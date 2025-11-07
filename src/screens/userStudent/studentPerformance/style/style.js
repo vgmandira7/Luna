@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     position: 'absolute', 
     marginLeft: 330,
     width: '10%',
-    height: '10%'
+    height: '4%'
   },
   percentMatter: {
     width: '85%',
