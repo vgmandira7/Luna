@@ -62,7 +62,7 @@ export default function studentPerformanceScreen() {
       />
 
       {/* Foto da logo do Luna */}
-      {/* <Image source={require('../../../assets/logo mobile.png')} style={[styles.logo]}></Image> */}
+      <Image source={require('../../../assets/logo mobile.png')} style={[styles.logo]}></Image>
       
       
       <Text style={styles.titleScreen}>Gráfico de desempenho geral</Text>
