@@ -15,8 +15,9 @@ export const styles = StyleSheet.create({
   logo: {
     position: 'absolute', 
     marginLeft: 330,
-    width: '10%',
-    height: '4%'
+    width: '9%',
+    height: '3%',
+    bottom: 820,
   },
   percentMatter: {
     width: '85%',
@@ -132,8 +133,16 @@ export const styles = StyleSheet.create({
   label: {
     fontFamily: 'Inter_700Bold',
     fontSize: theme.fontSize.normal,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginTop: 20
   },
+  rowDivisor: {
+    height: 2,
+    width: 256,
+    backgroundColor: theme.colors.primary,
+    marginLeft: -275,
+    bottom: 30
+  }
  
 
 });

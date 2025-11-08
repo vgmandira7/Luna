@@ -6,6 +6,7 @@ import Login from './src/screens/userStudent/login/index';
 import Escolha from './src/screens/chooseProfile/index';
 import Home from './src/screens/userStudent/home/index';
 import StudentPerformance from './src/screens/userStudent/studentPerformance/index';
+import ActivitiesProgress from './src/screens/userStudent/activitiesProgress/index';
 
 export default function App() {
   //ta importando as fontes que vamos usar
@@ -22,7 +23,7 @@ export default function App() {
   //conteudo principal
   return (
     <View style={styles.container}>
-      <StudentPerformance/>
+      <ActivitiesProgress/>
     </View>
   );
 }

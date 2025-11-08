@@ -91,10 +91,10 @@ export default function studentPerformanceScreen() {
               <Text style={[styles.label, {
                 color: item.colorMatter,
               }]}>{item.matter}</Text>
-            </View>
-            
+            </View>  
           </View>
         ))}
+        <View style={[styles.rowDivisor]}></View>
 
       </View>
 
