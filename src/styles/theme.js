@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 export default {
+=======
+export const theme = {
+>>>>>>> main
     colors: {
         primary: '#005A63',
         secondary: '#FFDDD2',
@@ -13,6 +17,10 @@ export default {
         md: 16,
         lg: 24,
         xl: 32,
+<<<<<<< HEAD
+=======
+        xx: 50,
+>>>>>>> main
     },
     fontSize: {
         small: 12,
@@ -26,9 +34,17 @@ export default {
     },
     radius:  {
         sm: 4,
+<<<<<<< HEAD
         md: 8,
         lg: 16,
         full: 9999,
     },
         
 };
+=======
+        md: 10,
+        lg: 50,
+        full: 9999,
+    },
+};
+>>>>>>> main

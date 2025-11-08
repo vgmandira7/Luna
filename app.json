@@ -1,11 +1,17 @@
 {
   "expo": {
+<<<<<<< HEAD
     "name": "Luna",
     "slug": "Luna",
+=======
+    "name": "luna",
+    "slug": "luna",
+>>>>>>> main
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
     "userInterfaceStyle": "light",
+<<<<<<< HEAD
     "newArchEnabled": true,
     "splash": {
       "image": "./src/assets/splash.png",
@@ -26,6 +32,30 @@
       "favicon": "./src/assets/favicon.png"
     },
     "plugins": [
+=======
+    "splash": {
+      "image": "./src/assets/splash.jpg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.vgmandira7.luna"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b281fd70-7235-41fa-a5c9-de0138390865"
+      }
+    },
+    "plugins": [
+      "expo-asset",
+>>>>>>> main
       "expo-font"
     ]
   }
