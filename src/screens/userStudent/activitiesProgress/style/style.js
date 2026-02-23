@@ -5,7 +5,7 @@ const { height, width } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: '#fff',
   },
   luna: {
@@ -40,24 +40,24 @@ export const styles = StyleSheet.create({
     top: 150,
     marginLeft: theme.spacing.xl
   },
-  progressMatter: {
-    backgroundColor: theme.colors.firstMatter,
-    width: 350,
-    height: 140,
-    alignSelf: 'center',
-    top: 30,
-    borderRadius: theme.radius.md,
-    boxShadow: theme.colors.shadowColor,
-    elevation: 6,
-    margin: 20,
-  },
-  centerProgressMatter: {
-    height: 140,
-    width: 100,
-    backgroundColor: theme.colors.borderFirstMatter,
-    borderTopLeftRadius: theme.radius.md,
-    borderStartEndRadius: theme.radius.md,
-  },
+  // progressMatter: {
+  //   backgroundColor: theme.colors.firstMatter,
+  //   width: 350,
+  //   height: 140,
+  //   alignSelf: 'center',
+  //   top: 30,
+  //   borderRadius: theme.radius.md,
+  //   boxShadow: theme.colors.shadowColor,
+  //   elevation: 6,
+  //   margin: 20,
+  // },
+  // centerProgressMatter: {
+  //   height: 140,
+  //   width: 100,
+  //   backgroundColor: theme.colors.borderFirstMatter,
+  //   borderTopLeftRadius: theme.radius.md,
+  //   borderStartEndRadius: theme.radius.md,
+  // },
   imgProgress: {
     width: '80%',
     height: '60%',
@@ -82,6 +82,10 @@ export const styles = StyleSheet.create({
     bottom: 135,
     marginLeft: 315
   },
+  textAndamento: {
+    fontFamily: theme.fonts.bold,
+    marginTop: theme.spacing.xx
+  }
 
  
 

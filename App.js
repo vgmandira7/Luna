@@ -1,38 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { useFonts, Inter_300Light,  Inter_700Bold} from '@expo-google-fonts/inter';
-import AppLoading from 'expo-app-loading';
-import Login from './src/screens/userStudent/login/index';
-import Escolha from './src/screens/chooseProfile/index';
-import Home from './src/screens/userStudent/home/index';
-import StudentPerformance from './src/screens/userStudent/studentPerformance/index';
-import ActivitiesProgress from './src/screens/userStudent/activitiesProgress/index';
+import React from "react";
+import { StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+
+import { useFonts, Inter_300Light, Inter_700Bold } from "@expo-google-fonts/inter";
+import AppLoading from "expo-app-loading";
+
+import StudentTabs from "./src/routes/appTab.js";
+
+import Routes from "./src/routes/index.js";
 
 export default function App() {
-  //ta importando as fontes que vamos usar
   const [fontsLoaded] = useFonts({
     Inter_300Light,
     Inter_700Bold,
   });
 
-  //se não carregar a fonte vai retornar AppLoading
-  if(!fontsLoaded) {
-    return <AppLoading/>;
-  }  
+  if (!fontsLoaded) return <AppLoading />;
 
-  //conteudo principal
   return (
-    <View style={styles.container}>
-      <ActivitiesProgress/>
-    </View>
+    
+    <NavigationContainer>
+      <Routes />
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  container: { flex: 1 },
 });

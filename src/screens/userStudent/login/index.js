@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-import { View, Text, StyleSheet, Dimensions, Image } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, StyleSheet, Dimensions, Image, Alert} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -13,7 +14,11 @@ import { styles } from './style/style';
 
 const { height, width } = Dimensions.get("window");
 
+
 export default function LoginScreen() {
+  const navigation = useNavigation();
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
   const logoPosition = useSharedValue(height / 2 - 100);
   const logoSize = useSharedValue(200);
   const modalTranslate = useSharedValue(height * 0.7);
@@ -43,6 +48,39 @@ export default function LoginScreen() {
     transform: [{ translateY: modalTranslate.value }],
   }));
 
+
+
+async function handleLogin() {
+  try {
+    const response = await fetch("http://192.168.1.73:8000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, senha }),
+    });
+
+    const data = await response.json();
+    console.log("BACKEND:", data);
+
+    if (data.ok) {
+  if (data.tipoUser === "aluno") {
+    navigation.replace("StudentTabs", {
+      userId: data.userId,       // ✅ manda o id do usuarios
+      tipoUser: data.tipoUser,   // opcional
+    });
+    return;
+  }
+
+  if (data.tipoUser === "professor") {
+    console.log("É professor");
+    return;
+  }
+}
+    Alert.alert("Erro", data.message || "Email ou senha inválidos");
+  } catch (err) {
+    console.log("ERRO:", err);
+    Alert.alert("Erro", "Falha ao conectar no servidor");
+  }
+}
   return (
     <View style={styles.container}>
       {/* Foto de Luna animada acima da logo */}
@@ -68,6 +106,8 @@ export default function LoginScreen() {
           placeholder="Digite seu e-mail"
           icon={<MaterialIcons name="email" size={24} color={theme.colors.secondary} />}
           style={styles.inputEmail}
+          value={email}
+          onChangeText={setEmail}
         />
 
         <CustomInput
@@ -76,12 +116,14 @@ export default function LoginScreen() {
           secureTextEntry={true}
           icon={<MaterialIcons name="lock" size={24} color={theme.colors.secondary} />}
           style={styles.inputSenha}
+          value={senha}
+          onChangeText={setSenha}
         />
 
         {/* Botão de entrar */}
         <CustomButton
           title="Entrar"
-          onPress={() => console.log('Login clicado')}
+          onPress={handleLogin}
           style={styles.CustomButton}
         />
 
