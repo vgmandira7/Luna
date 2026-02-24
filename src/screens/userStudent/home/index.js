@@ -33,7 +33,7 @@ export default function App({ route }) {
   const [materias, setMaterias] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Padronização do card por nome da matéria
+
   function materiaPreset(nome) {
     const n = (nome || "").toLowerCase();
 
@@ -64,7 +64,7 @@ export default function App({ route }) {
       };
     }
 
-    // fallback (se vier outra matéria)
+   
     return {
       title: nome,
       image: geografiaImg,
@@ -73,7 +73,7 @@ export default function App({ route }) {
     };
   }
 
-  // ✅ formata 01., 02., 03.
+
   function formatNumber(i) {
     const n = String(i + 1).padStart(2, "0");
     return `${n}.`;
@@ -87,7 +87,7 @@ export default function App({ route }) {
           return;
         }
 
-        // 1) buscar aluno
+        // busca aluno
         const respAluno = await fetch(`http://192.168.1.73:8000/aluno/${userId}`);
         const dataAluno = await respAluno.json();
         console.log("DADOS ALUNO:", dataAluno);
@@ -105,26 +105,27 @@ export default function App({ route }) {
           return;
         }
 
-        // 2) buscar materias pela escolaID
+       
         const respMat = await fetch(`http://192.168.1.73:8000/materias/${escolaID}`);
         const dataMat = await respMat.json();
         console.log("MATERIAS:", dataMat);
 
         if (dataMat.ok) {
           // transforma o retorno do banco em cards padronizados
-          const cards = (dataMat.materias || []).map((m, idx) => {
-            const preset = materiaPreset(m.nome);
+        const cards = (dataMat.materias || []).map((m, idx) => {
+          const preset = materiaPreset(m.nome);
 
-            return {
-              id: m.idMateria ?? idx + 1,
-              number: formatNumber(idx),
-              title: preset.title,
-              image: preset.image,
-              backgroundColor: preset.backgroundColor,
-              buttonColor: preset.buttonColor,
-              rota: m.rota || "Em andamento",
-            };
-          });
+          return {
+            id: m.id,                      
+            number: formatNumber(idx),
+            title: preset.title,
+            nome: m.nome,                   
+            image: preset.image,
+            backgroundColor: preset.backgroundColor,
+            buttonColor: preset.buttonColor,
+            rota: m.rota || "Atividades",
+          };
+        });
 
           setMaterias(cards);
         }
@@ -202,7 +203,13 @@ export default function App({ route }) {
                 <MateriaCard
                   key={materia.id}
                   {...materia}
-                  onPress={() => navigation.navigate(materia.rota)}
+               onPress={() =>
+                navigation.navigate("Atividades", {
+                  materiaId: materia.id,      
+                  materiaNome: materia.nome,  
+                  userId,
+                })
+              }
                 />
               ))}
             </ScrollView>

@@ -21,7 +21,8 @@ client = MongoClient(
 db = client["ProjetoIntegrador"]
 usuarios = db["usuarios"]
 alunos = db["alunos"]
-materias = db["materias"]  # ✅ NOVO: coleção materias
+materias = db["materias"]  
+planos = db["planosDeAula"]
 
 
 class LoginRequest(BaseModel):
@@ -47,7 +48,7 @@ def login(payload: LoginRequest):
 def get_aluno(user_id: str):
     aluno = alunos.find_one({"userID": user_id}, {"_id": 0})
 
-    # se userID em alunos estiver como ObjectId, tenta assim também
+  
     if not aluno:
         try:
             aluno = alunos.find_one({"userID": ObjectId(user_id)}, {"_id": 0})
@@ -62,11 +63,19 @@ def get_aluno(user_id: str):
 
 @app.get("/materias/{escola_id}")
 def get_materias_por_escola(escola_id: str):
-    lista = list(
-        materias.find(
-            {"escolaID": escola_id},
-            {"_id": 0, "idMateria": 1, "nome": 1, "rota": 1}
-        )
-    )
+    docs = list(materias.find({"escolaID": escola_id}, {"nome": 1, "rota": 1}))
+
+    lista = []
+    for m in docs:
+        lista.append({
+            "id": str(m["_id"]),                 
+            "nome": m.get("nome", ""),
+            "rota": m.get("rota", "Atividades"),
+        })
 
     return {"ok": True, "materias": lista}
+
+@app.get("/planos/{materia_id}")
+def get_planos_por_materia(materia_id: str):
+    lista = list(planos.find({"materiaID": materia_id}, {"_id": 0}))
+    return {"ok": True, "planos": lista}
